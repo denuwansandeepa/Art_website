@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const artworks = [
-  { id: 1, img: "/images/art1.jpg" },
-  { id: 2, img: "/images/art2.jpg" },
+  { id: 1, img: "/images/girl.jpg" },
+  { id: 2, img: "/images/ocean.jpg" },
   { id: 3, img: "/images/art3.jpg" },
   { id: 4, img: "/images/art4.jpg" },
 ];

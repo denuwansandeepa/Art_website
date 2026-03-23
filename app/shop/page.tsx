@@ -21,13 +21,14 @@ export default function ShopPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {allArtworks.map((art) => (
-            <Shop
-              key={art.id}
-              title={art.title}
-              imgSrc={art.imgSrc}
-              price={art.price}
-              size={art.size}
-            />
+           <Shop
+  key={art.id}
+  id={art.id}
+  title={art.title}
+  imgSrc={art.imgSrc}
+  price={art.price}
+  size={art.size}
+/>
           ))}
         </div>
       </div>

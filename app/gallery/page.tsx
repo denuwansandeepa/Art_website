@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const artworks = [
   { id: 1, title: "Sunset Dream", img: "/images/art1.jpg" },
-  { id: 2, title: "Ocean Waves", img: "/images/art2.jpg" },
+  { id: 2, title: "Ocean Waves", img: "/images/ocean.jpg" },
   { id: 3, title: "Golden Forest", img: "/images/art3.jpg" },
   { id: 4, title: "Abstract Light", img: "/images/art4.jpg" },
   { id: 5, title: "Purple Sky", img: "/images/art5.jpg" },

@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { FavoritesProvider } from "./context/FavoritesContext";
+import { CartProvider } from "./context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,17 +22,18 @@ export const metadata: Metadata = {
   description: "A modern digital art portfolio website",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        {/* ✅ Wrap everything with Providers */}
+        <CartProvider>
+          <FavoritesProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </FavoritesProvider>
+        </CartProvider>
       </body>
     </html>
   );

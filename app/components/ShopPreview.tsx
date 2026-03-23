@@ -39,20 +39,22 @@ export default function ShopPreview() {
     <section className="py-24 bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100">
       <div className="max-w-7xl mx-auto px-6 text-center">
         
-        {/* Section Title */}
+        {/* Title */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
           Featured Artworks
         </h2>
+
         <p className="text-gray-600 max-w-2xl mx-auto mb-16">
           Discover a curated selection of our latest and most popular artworks,
           crafted with passion and creativity.
         </p>
 
-        {/* Improved Professional Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 mb-16">
           {artworksPreview.map((art) => (
             <Shop
               key={art.id}
+              id={art.id} // ✅ IMPORTANT (for cart)
               title={art.title}
               imgSrc={art.imgSrc}
               price={art.price}
@@ -61,7 +63,7 @@ export default function ShopPreview() {
           ))}
         </div>
 
-        {/* Show More Button */}
+        {/* Button */}
         <Link href="/shop">
           <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             View Full Collection
