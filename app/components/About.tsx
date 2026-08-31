@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Inter, Playfair_Display } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -14,11 +14,11 @@ export default function About() {
       y: 0, 
       rotateX: 0, 
       scale: 1,
-      transition: { duration: 1, ease: "easeOut" }
+     transition: { duration: 1, ease: "easeOut" as const },
     },
   };
 
-  const staggerContainer = {
+ const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
