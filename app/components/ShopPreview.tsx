@@ -2,7 +2,7 @@
 
 import Shop from "./Shop";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -39,7 +39,7 @@ const artworksPreview = [
 ];
 
 export default function ShopPreview() {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -49,7 +49,7 @@ export default function ShopPreview() {
     }
   };
 
-  const item3D = {
+  const item3D: Variants = {
     hidden: { opacity: 0, y: 100, rotateY: -30, rotateX: 20, scale: 0.8 },
     show: { 
       opacity: 1, 
@@ -64,7 +64,7 @@ export default function ShopPreview() {
   return (
     <section className={`${playfair.variable} py-32 bg-[#050505] relative overflow-hidden perspective-1000`}>
       {/* Abstract glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 text-center z-10">
         
@@ -77,8 +77,8 @@ export default function ShopPreview() {
           <div className="inline-block mb-4 rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md text-secondary font-medium text-sm tracking-widest uppercase">
             Curated Collection
           </div>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 font-[var(--font-playfair)] tracking-tight">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Artworks</span>
+          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 font-(--font-playfair) tracking-tight">
+            Featured <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">Artworks</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-20 text-lg">
             Discover a curated selection of our latest and most popular artworks,
@@ -116,7 +116,7 @@ export default function ShopPreview() {
         >
           <Link href="/shop">
             <button className="group relative overflow-hidden rounded-full bg-white px-10 py-4 font-bold text-black transition-transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+              <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
               View Full Collection
             </button>
           </Link>
