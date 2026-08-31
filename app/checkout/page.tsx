@@ -15,7 +15,7 @@ type CheckoutFormData = {
 export default function CheckoutPage() {
   const { cart } = useCart();
 
-  const whatsappNumber = "947XXXXXXXX";
+  const whatsappNumber = "94712558968";
   // Example: 94771234567
   // Do not use + sign
 
@@ -85,7 +85,7 @@ ${orderItems}
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-10 md:px-10">
+    <div className="min-h-screen bg-gray-50 px-4 py-17 md:px-10">
       <style jsx global>{`
         @keyframes fadeUp {
           from {

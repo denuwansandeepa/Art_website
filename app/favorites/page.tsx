@@ -15,7 +15,7 @@ export default function FavoritesPage() {
   }, 0);
 
   return (
-    <div className="min-h-screen bg-gray-50 px-5 py-10 md:px-10">
+    <div className="min-h-screen bg-gray-50 px-5 py-18 md:px-10">
       <style jsx global>{`
         @keyframes fadeUp {
           from {

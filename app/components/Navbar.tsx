@@ -28,8 +28,8 @@ export default function Navbar() {
           <Image
             src="/images/logo/logo.png"
             alt="Auralyn Maliora Logo"
-            width={120}
-            height={40}
+            width={100}
+            height={20}
             priority
             quality={100}
             className="object-contain transition-all duration-300 hover:scale-105 hover:opacity-90"

@@ -37,7 +37,7 @@ export default function Footer() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12"
+        className="max-w-8xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12"
       >
         {/* Brand */}
         <div className="space-y-4">
@@ -103,7 +103,7 @@ export default function Footer() {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-500">
-        © {year} ArtStudio. All rights reserved.
+        © {year} Auralyn Maliora. All rights reserved.
       </div>
     </footer>
   );

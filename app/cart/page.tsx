@@ -18,7 +18,7 @@ export default function CartPage() {
   const grandTotal = total + deliveryFee;
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-10 md:px-10">
+    <div className="min-h-screen bg-gray-50 px-4 py-17 md:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="mb-8">
