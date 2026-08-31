@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { CalendarDays } from "lucide-react";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 const updates = [
   {
@@ -25,54 +28,88 @@ const updates = [
 ];
 
 export default function LatestUpdate() {
+  const container3D = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const item3D = {
+    hidden: { opacity: 0, x: -50, rotateY: 30, scale: 0.9 },
+    show: { 
+      opacity: 1, 
+      x: 0, 
+      rotateY: 0, 
+      scale: 1,
+      transition: { type: "spring", stiffness: 60, damping: 20 }
+    }
+  };
+
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className={`${playfair.variable} relative min-h-screen bg-[#050505] py-32 overflow-hidden perspective-1000`}>
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto px-6 z-10">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: -40, rotateX: -20 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-24"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
-            Latest Updates
+          <div className="inline-block mb-4 rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md text-secondary font-medium text-sm tracking-widest uppercase">
+            What's New
+          </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 font-[var(--font-playfair)]">
+            Latest <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Updates</span>
           </h1>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg">
             Stay informed with our newest releases, improvements, and announcements.
           </p>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative border-l-4 border-purple-500 pl-8 space-y-12">
+        <motion.div 
+          className="relative border-l-4 border-primary/30 pl-8 space-y-16 ml-4 md:ml-0"
+          variants={container3D}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {updates.map((update, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative"
+              variants={item3D}
+              whileHover={{ scale: 1.02, rotateY: -2, x: 10 }}
+              className="relative group cursor-default"
             >
               {/* Dot */}
-              <span className="absolute -left-[38px] top-2 w-5 h-5 bg-purple-600 rounded-full border-4 border-white shadow"></span>
+              <div className="absolute -left-[42px] top-4 w-6 h-6 bg-primary rounded-full border-4 border-[#050505] shadow-[0_0_15px_rgba(157,78,221,0.8)] group-hover:bg-secondary group-hover:shadow-[0_0_20px_rgba(255,0,127,1)] transition-colors duration-300 z-10" />
 
-              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-                <div className="flex items-center text-sm text-gray-500 mb-2">
-                  <CalendarDays className="w-4 h-4 mr-2 text-purple-600" />
+              <div className="glass-card p-8 md:p-10 rounded-2xl relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="flex items-center text-sm text-primary mb-4 font-medium uppercase tracking-wider relative z-10">
+                  <CalendarDays className="w-4 h-4 mr-2" />
                   {update.date}
                 </div>
-                <h2 className="text-xl font-bold text-gray-800 mb-2">
+                <h2 className="text-2xl font-bold text-white mb-4 font-[var(--font-playfair)] relative z-10">
                   {update.title}
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed text-lg relative z-10">
                   {update.description}
                 </p>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

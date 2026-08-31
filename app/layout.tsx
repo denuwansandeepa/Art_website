@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { CartProvider } from "./context/CartContext";
+import SmoothScrolling from "./components/SmoothScrolling";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +28,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* ✅ Wrap everything with Providers */}
-        <CartProvider>
-          <FavoritesProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </FavoritesProvider>
-        </CartProvider>
+        <SmoothScrolling>
+          <CartProvider>
+            <FavoritesProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </FavoritesProvider>
+          </CartProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );
