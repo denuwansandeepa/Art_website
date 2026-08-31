@@ -43,6 +43,15 @@ body {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
+/* Font Family Utilities — defined as @utility so Tailwind knows they only set font-family */
+@utility ff-playfair {
+  font-family: var(--font-playfair);
+}
+
+@utility ff-inter {
+  font-family: var(--font-inter);
+}
+
 /* Smooth Scrolling utilities */
 html.lenis, html.lenis body {
   height: auto;

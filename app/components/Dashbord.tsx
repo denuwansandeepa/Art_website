@@ -67,7 +67,7 @@ export default function LatestUpdate() {
           <div className="inline-block mb-4 rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md text-secondary font-medium text-sm tracking-widest uppercase">
             What's New
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 font-(--font-playfair)">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 ff-playfair">
             Latest <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">Updates</span>
           </h1>
           <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg">
@@ -100,7 +100,7 @@ export default function LatestUpdate() {
                   <CalendarDays className="w-4 h-4 mr-2" />
                   {update.date}
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-4 font-(--font-playfair) relative z-10">
+                <h2 className="text-2xl font-bold text-white mb-4 ff-playfair relative z-10">
                   {update.title}
                 </h2>
                 <p className="text-gray-400 leading-relaxed text-lg relative z-10">

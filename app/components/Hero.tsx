@@ -1,79 +1,23 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Image, Environment, Float, Sparkles, Text, ContactShadows } from "@react-three/drei";
-import * as THREE from "three";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const ARTWORKS = [
-  "/images/malee/paint.jpeg",
-  "/images/malee/paint2.jpeg",
-  "/images/malee/paint3.jpeg",
-  "/images/malee/paint4.jpeg",
-];
-
-function Scene() {
-  const { viewport, mouse } = useThree();
-  const group = useRef<THREE.Group>(null);
-
-  useFrame((state, delta) => {
-    if (group.current) {
-      // Smoothly rotate the group based on mouse position
-      THREE.MathUtils.lerp(group.current.rotation.y, (mouse.x * Math.PI) / 10, 0.1);
-      THREE.MathUtils.lerp(group.current.rotation.x, (mouse.y * Math.PI) / 10, 0.1);
-      
-      group.current.rotation.y += (mouse.x * 0.2 - group.current.rotation.y) * 0.05;
-      group.current.rotation.x += (-mouse.y * 0.2 - group.current.rotation.x) * 0.05;
-    }
-  });
-
-  return (
-    <group ref={group}>
-      {/* Center Main Art */}
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        <Image url={ARTWORKS[0]} transparent opacity={0.9} scale={[viewport.width / 4, viewport.width / 3]} position={[0, 0, 1]} />
-      </Float>
-
-      {/* Side floating artworks */}
-      <Float speed={1.5} rotationIntensity={1.5} floatIntensity={2}>
-        <Image url={ARTWORKS[1]} transparent opacity={0.7} scale={[viewport.width / 5, viewport.width / 4]} position={[-viewport.width / 3.5, 1, -1]} rotation={[0, Math.PI / 8, 0]} />
-      </Float>
-      
-      <Float speed={2.5} rotationIntensity={1} floatIntensity={1.5}>
-        <Image url={ARTWORKS[2]} transparent opacity={0.7} scale={[viewport.width / 5, viewport.width / 4]} position={[viewport.width / 3.5, -1, -2]} rotation={[0, -Math.PI / 8, 0]} />
-      </Float>
-
-      <Float speed={1} rotationIntensity={2} floatIntensity={2}>
-        <Image url={ARTWORKS[3]} transparent opacity={0.5} scale={[viewport.width / 6, viewport.width / 5]} position={[viewport.width / 2.5, 2, -3]} />
-      </Float>
-
-      <Sparkles count={150} scale={12} size={2} speed={0.4} opacity={0.2} color="#ff007f" />
-      <Sparkles count={100} scale={10} size={1.5} speed={0.2} opacity={0.3} color="#9d4edd" />
-      
-      <ContactShadows resolution={512} scale={20} blur={2} opacity={0.5} far={10} color="#000000" />
-    </group>
-  );
-}
+// Dynamically import the 3D canvas — no SSR so three.js works in Next.js
+const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
 
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black text-white selection:bg-primary/30">
       
-      {/* 3D Canvas Background */}
+      {/* 3D Canvas Background - loaded client-side only */}
       <div className="absolute inset-0 z-0 opacity-80">
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-          <color attach="background" args={["#000000"]} />
-          <ambientLight intensity={0.5} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-          <Scene />
-          <Environment preset="city" />
-        </Canvas>
+        <HeroCanvas />
       </div>
 
       {/* Overlay Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center bg-gradient-to-b from-black/20 via-transparent to-black/80 px-6 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center bg-linear-to-b from-black/20 via-transparent to-black/80 px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +35,7 @@ export default function Hero() {
 
           <h1 className="text-6xl font-black leading-tight tracking-tighter md:text-8xl">
             Art That <br />
-            <span className="bg-gradient-to-r from-primary via-[#d87093] to-secondary bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(255,0,127,0.5)]">
+            <span className="bg-linear-to-r from-primary via-[#d87093] to-secondary bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(255,0,127,0.5)]">
               Comes Alive
             </span>
           </h1>
@@ -111,7 +55,7 @@ export default function Hero() {
             href="/shop"
             className="group relative overflow-hidden rounded-full bg-white px-8 py-4 font-bold text-black transition-transform hover:scale-105"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+          <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
             Explore Collection
           </Link>
           <Link

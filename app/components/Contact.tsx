@@ -42,12 +42,12 @@ export default function Contact() {
       <motion.div
         animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"
+        className="absolute top-0 left-0 w-150 h-150 bg-primary/10 rounded-full blur-[150px] pointer-events-none"
       />
       <motion.div
         animate={{ scale: [1, 1.5, 1], rotate: [0, -90, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none"
+        className="absolute bottom-0 right-0 w-150 h-150 bg-secondary/10 rounded-full blur-[150px] pointer-events-none"
       />
 
       <section className="relative z-10 max-w-7xl mx-auto px-6">
@@ -63,8 +63,8 @@ export default function Contact() {
           <div className="inline-block mb-4 rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md text-primary font-medium text-sm tracking-widest uppercase">
             Get in touch
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 font-[var(--font-playfair)]">
-            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Us</span>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 ff-playfair">
+            Contact <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">Us</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Have a question or want to collaborate? Send us a message or reach out
@@ -89,7 +89,7 @@ export default function Contact() {
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full" />
             
-            <h2 className="text-3xl font-bold text-white mb-8 font-[var(--font-playfair)]">
+            <h2 className="text-3xl font-bold text-white mb-8 ff-playfair">
               Send a Message
             </h2>
 
@@ -124,7 +124,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.95 }}
                 className="w-full group relative overflow-hidden bg-white text-black font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center gap-3 transition-transform"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
+                <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
                 <span className="relative z-10">Send Message</span>
                 <Send size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </motion.button>
@@ -137,11 +137,11 @@ export default function Contact() {
             whileHover={{ scale: 1.02, rotateY: -5, rotateX: 2 }}
             className="relative overflow-hidden rounded-3xl p-8 md:p-12 border border-white/10 bg-[#0a0a0a]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-50" />
+            <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-secondary/20 opacity-50" />
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-primary/30 rounded-full blur-[80px]" />
             <div className="absolute bottom-0 -left-20 w-72 h-72 bg-secondary/30 rounded-full blur-[80px]" />
 
-            <h2 className="text-3xl font-bold mb-4 relative z-10 text-white font-[var(--font-playfair)]">
+            <h2 className="text-3xl font-bold mb-4 relative z-10 text-white ff-playfair">
               Contact Details
             </h2>
 

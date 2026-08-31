@@ -77,7 +77,7 @@ export default function ShopPreview() {
           <div className="inline-block mb-4 rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md text-secondary font-medium text-sm tracking-widest uppercase">
             Curated Collection
           </div>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 font-(--font-playfair) tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 ff-playfair tracking-tight">
             Featured <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">Artworks</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-20 text-lg">

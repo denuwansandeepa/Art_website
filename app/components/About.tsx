@@ -44,11 +44,11 @@ export default function About() {
           <motion.div className="inline-block mb-4 rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md text-primary font-medium text-sm">
             ✦ Behind the Canvas
           </motion.div>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-8 font-[var(--font-playfair)] tracking-tight">
-            About <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">ArtStudio</span>
+          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-8 ff-playfair tracking-tight">
+            About <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">ArtStudio</span>
           </h2>
           
-          <div className="text-lg md:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed font-[var(--font-inter)] space-y-8 glass-card p-10 rounded-3xl">
+          <div className="text-lg md:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed ff-inter space-y-8 glass-card p-10 rounded-3xl">
             <p>
               Auralyn Maliora is an artist devoted to transforming imagination into emotion through art. Working across different mediums such as ballpoint pen, pencil, and color pencil, each artwork is created with patience, precision, and deep feeling.
             </p>
@@ -83,11 +83,11 @@ export default function About() {
               whileHover={{ scale: 1.05, rotateY: 10, rotateX: 5 }}
               className="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-300 cursor-pointer"
             >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mb-6 flex items-center justify-center shadow-[0_0_20px_rgba(157,78,221,0.5)]">
+              <div className="w-16 h-16 rounded-full bg-linear-to-br from-primary to-secondary mb-6 flex items-center justify-center shadow-[0_0_20px_rgba(157,78,221,0.5)]">
                 <span className="text-2xl font-bold text-white">{index + 1}</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 font-[var(--font-playfair)]">{item.title}</h3>
-              <p className="text-gray-400 font-[var(--font-inter)]">{item.desc}</p>
+              <h3 className="text-2xl font-bold text-white mb-3 ff-playfair">{item.title}</h3>
+              <p className="text-gray-400 ff-inter">{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>

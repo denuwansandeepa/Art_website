@@ -36,8 +36,8 @@ export default function Shop({ id, title, imgSrc, price, size }: ShopProps) {
       </button>
 
       {/* Image */}
-      <div className="w-full aspect-[4/3] overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 opacity-60" />
+      <div className="w-full aspect-4/3 overflow-hidden relative">
+        <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-transparent to-transparent z-10 opacity-60" />
         <img
           src={imgSrc}
           alt={title}
@@ -46,7 +46,7 @@ export default function Shop({ id, title, imgSrc, price, size }: ShopProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 text-center flex flex-col flex-grow bg-[#050505]/50">
+      <div className="p-6 text-center flex flex-col grow bg-[#050505]/50">
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
         <p className="text-primary font-black text-xl mb-2 filter drop-shadow-[0_0_8px_rgba(157,78,221,0.5)]">Rs. {price}</p>
         <p className="text-gray-400 text-sm mb-6 font-medium">Size: {size}</p>
@@ -57,7 +57,7 @@ export default function Shop({ id, title, imgSrc, price, size }: ShopProps) {
             className="w-full relative overflow-hidden bg-white/10 border border-white/20 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:bg-white hover:text-black shadow-[0_0_15px_rgba(255,255,255,0.1)] group/btn"
           >
             <span className="relative z-10">Add to Cart</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover/btn:opacity-20" />
+            <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover/btn:opacity-20" />
           </button>
         </div>
       </div>
